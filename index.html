@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Future Letter to Ishika</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: radial-gradient(circle at top, #fefae0, #f4f1ff);
+    }
+
+    .letter-wrapper {
+      max-width: 720px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px 20px 28px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .letter-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .letter-header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .letter-header p {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    .letter-body {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      margin-left: 2px;
+      animation: blink 0.8s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      text-align: right;
+      opacity: 0.6;
+    }
+
+    /* Special "something's off" effect */
+    .weird {
+      display: inline-block;
+      animation: wobble 0.45s ease-in-out infinite alternate;
+      transform-origin: center;
+    }
+
+    @keyframes wobble {
+      0% {
+        transform: translateX(0) rotate(0deg) scale(1);
+        letter-spacing: 0;
+      }
+      50% {
+        transform: translateX(-1px) rotate(-0.4deg) scale(1.01);
+        letter-spacing: 0.02em;
+      }
+      100% {
+        transform: translateX(1px) rotate(0.4deg) scale(0.99);
+        letter-spacing: 0.01em;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .letter-wrapper {
+        padding: 32px 32px 36px;
+      }
+      .letter-body {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter-wrapper">
+    <div class="letter-header">
+      <h1>From the Future</h1>
+      <p>Delivered by 2025 Anshuman</p>
+    </div>
+    <div id="letter" class="letter-body"></div>
+    <div class="footer-note">
+      ⏳ Typed across time
+    </div>
+  </div>
+
+  <script>
+    // Adjust this for typing speed (ms per character)
+    const TYPING_SPEED = 25;
+
+    // Split into 3 parts: before, "weird" chunk, after
+    const part1 = `Happy 60th birthday Ishika!!!!! Waise toh m tumko aamne saamne aakr wish karta but tum toh Norway gyi ho, after all tumhara mann tha 60th birthday Aurora ki khoobsurat scenery aur peace ke neeche manane ka, although pehle bhi kyi baar udhr jaa chuki ho. vaise abhi bhi itni furti baaki h tumme, maanna pdega
+
+`;
+    const specialPart = `...... Oh wait, tum confused ho? 60th birthday? aurora? are ye m hu kush, from 42 years in the future. 
+
+`;
+    const part2 = `Bc kya zindagi banai h tumne, pta tumko? sabse pehle toh kitna sahi home sweet home design kiya h, mza aati h yaar udhr aakr, like sab kuch h us ghar m, perfect design se lekr entertainment system, gaming room, itne pyaare pyaare washroom mann krta h sote hi rho inme, kya sexy kitchen with all kinds of equipments, and beauty and home aesthetic products toh uff, poori dukaan khul skti, aise aise gadgets toh maine dekhe tak nhi the
+
+and last vacation yaad h? Japan gyi thin tum, kya photos the lag hi nhi rha tha 59 ki budhiya ho 🤣. bechara anirudh, kitna chalwaya yaar usko uske ghutne bol gye honge
+
+toh fridge par ab i think almost 50 alg alg locations ke souvenir toh ho gye honge? agle 2 saalon mein m toh keh rha 50 aur locations visit krke century complete kar hi do, vaise bhi hospital toh ab mast auto-mode m chl rha h utna kaam bhi nhi lgta day-to-day ka
+
+oye maine suna aaj kal buddhe line maarne hospital mariz bankar aa rhe? 🤣🤣🤣 oh bhai m jo hasa hu sunkr 
+
+but on a serious note, genuinely so proud tumko itna grow krta hua and maze krta hu actually khush hota hua dekhkr, like damn kahan vo drop year tha itna mushkil i know, and kitna suffer krna pda, kahan hum sapne dekhte the and aaj vo sab and aur bhi zyada jee chuke, itne saare moments the jb tumne college join kiya, jb tum graduate hui doctor banke, jab tumne first income start krdi, jab clinic banwaya, jb aur businesses kholne shuru kiye, jab clinic ko hospital banwaya, and aur bhi boht, jinme m itna proud hua, boht deserving ho tum in sab achievements ki. pta sabse proud kya tha? you going through that drop year after jo backchodiyan baar baar ho jaati and demotivate krtin, because ek baar ek cheez achieve ho jaye toh motivation mil jaata h aage bdhne ka but vo pehli achievement laane m jo fatti h, you went through that soooo well! 
+
+Love you little sis 🫶
+
+vaise chlo m spoiler nhi deta tumhari future life ka, baaki khud jeena and dekhna apne kaarnaame 😂. oh kaar se yaad aya, tumhe pata tumhari first car kaunsi thi? khair chhodo ye bhi kyu spoil kru abhi, hain naaaaa
+
+anyways, ab mujhe chalna chahiye apne time mein vaps, 2025 mein vaps aakr accha laga, happy 18th birthday, Ishika!!!! 🔥🔥✨✨🌟 byeeeeeeeeeeeee
+
+
+oh and last thing, Anshuman from 2025 ne tumhe ye btane ko bola tha: Adulthood Task 2`;
+
+    const segments = [
+      { text: part1, className: null },
+      { text: specialPart, className: "weird" },
+      { text: part2, className: null }
+    ];
+
+    const letterContainer = document.getElementById("letter");
+
+    const cursorSpan = document.createElement("span");
+    cursorSpan.className = "cursor";
+    cursorSpan.textContent = "|";
+
+    let segmentIndex = 0;
+    let charIndex = 0;
+    let activeTarget = letterContainer;
+    let specialSpan = null;
+
+    function typeNextChar() {
+      const currentSegment = segments[segmentIndex];
+      if (!currentSegment) {
+        // All done
+        return;
+      }
+
+      // If starting a segment with className, create span once
+      if (charIndex === 0 && currentSegment.className) {
+        specialSpan = document.createElement("span");
+        specialSpan.className = currentSegment.className;
+        letterContainer.appendChild(specialSpan);
+        activeTarget = specialSpan;
+      } else if (charIndex === 0 && !currentSegment.className) {
+        activeTarget = letterContainer;
+      }
+
+      const text = currentSegment.text;
+
+      if (charIndex < text.length) {
+        const currentChar = text[charIndex];
+
+        // Remove cursor before appending
+        if (cursorSpan.parentNode) {
+          cursorSpan.parentNode.removeChild(cursorSpan);
+        }
+
+        if (currentChar === "\n") {
+          const br = document.createElement("br");
+          activeTarget.appendChild(br);
+        } else {
+          activeTarget.appendChild(document.createTextNode(currentChar));
+        }
+
+        // Re-attach cursor at the very end
+        letterContainer.appendChild(cursorSpan);
+
+        charIndex++;
+        setTimeout(typeNextChar, TYPING_SPEED);
+      } else {
+        // Move to next segment
+        segmentIndex++;
+        charIndex = 0;
+        setTimeout(typeNextChar, TYPING_SPEED);
+      }
+    }
+
+    // Start typing
+    letterContainer.appendChild(cursorSpan);
+    typeNextChar();
+  </script>
+</body>
+</html>
