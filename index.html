@@ -79,6 +79,18 @@
         0 0 16px rgba(0, 255, 213, 0.4);
     }
 
+    /* Big, tilted question mark */
+    .big-question {
+      display: inline-block;
+      font-size: 1.6em;
+      transform: rotate(-18deg) translateY(3px);
+      margin-left: 2px;
+      color: #9bffb8;
+      text-shadow:
+        0 0 6px rgba(0, 255, 170, 0.9),
+        0 0 14px rgba(0, 255, 213, 0.7);
+    }
+
     @media (min-width: 768px) {
       .letter-wrapper {
         padding: 32px 32px 34px;
@@ -99,45 +111,59 @@
   </div>
 
   <script>
-    // Base typing speed (ms per character)
-    const BASE_SPEED = 55;
+    // Slower base typing speed (ms per character)
+    const BASE_SPEED = 90;
 
-    // Segment-specific speeds (override base if present)
-    // dots: slower, "Oh wait..." normal-ish, "?" with a small pause
     const segments = [
       {
         text: `Happy 60th birthday Ishika!!!!! Waise toh m tumko aamne saamne aakr wish karta but tum toh Norway gyi ho, after all tumhara mann tha 60th birthday Aurora ki khoobsurat scenery aur peace ke neeche manane ka, although pehle bhi kyi baar udhr jaa chuki ho. vaise abhi bhi itni furti baaki h tumme, maanna pdega
 
 `,
         className: null,
-        speed: BASE_SPEED
+        speed: 90
       },
       {
         text: `......`,
         className: null,
-        speed: 220   // slow dots
+        speed: 260   // slow dots
       },
       {
         text: ` `,
         className: null,
-        speed: 120   // small pause after dots
+        speed: 180   // small pause after dots
       },
+
+      // 1) "Oh wait" instantly with glow
       {
-        text: `Oh wait, tum confused ho`,
+        text: `Oh wait`,
         className: "spaced",
-        speed: BASE_SPEED
+        speed: 0
       },
+      // 2) " tum" normal typing
+      {
+        text: ` tum`,
+        className: "spaced",
+        speed: 95
+      },
+      // 3) " confused ho" very fast typing
+      {
+        text: ` confused ho`,
+        className: "spaced",
+        speed: 20
+      },
+      // 4) Large, tilted question mark
       {
         text: `?`,
-        className: "spaced",
-        speed: 350   // question mark comes a bit delayed
+        className: "big-question",
+        speed: 200
       },
+
       {
         text: ` 60th birthday? aurora? are ye m hu kush, from 42 years in the future. 
 
 `,
         className: null,
-        speed: BASE_SPEED
+        speed: 90
       },
       {
         text: `Bc kya zindagi banai h tumne, pta tumko? sabse pehle toh kitna sahi home sweet home design kiya h, mza aati h yaar udhr aakr, like sab kuch h us ghar m, perfect design se lekr entertainment system, gaming room, itne pyaare pyaare washroom mann krta h sote hi rho inme, kya sexy kitchen with all kinds of equipments, and beauty and home aesthetic products toh uff, poori dukaan khul skti, aise aise gadgets toh maine dekhe tak nhi the
@@ -159,7 +185,7 @@ anyways, ab mujhe chalna chahiye apne time mein vaps, 2025 mein vaps aakr accha 
 
 oh and last thing, Anshuman from 2025 ne tumhe ye btane ko bola tha: Adulthood Task 2`,
         className: null,
-        speed: BASE_SPEED
+        speed: 100
       }
     ];
 
@@ -190,6 +216,27 @@ oh and last thing, Anshuman from 2025 ne tumhe ye btane ko bola tha: Adulthood T
           activeTarget = letterContainer;
           currentSpan = null;
         }
+
+        // If speed is 0: render whole segment instantly
+        if (speed === 0) {
+          if (cursorSpan.parentNode) {
+            cursorSpan.parentNode.removeChild(cursorSpan);
+          }
+
+          for (let i = 0; i < text.length; i++) {
+            if (text[i] === "\n") {
+              activeTarget.appendChild(document.createElement("br"));
+            } else {
+              activeTarget.appendChild(document.createTextNode(text[i]));
+            }
+          }
+
+          letterContainer.appendChild(cursorSpan);
+          segmentIndex++;
+          charIndex = 0;
+          setTimeout(typeNextChar, BASE_SPEED);
+          return;
+        }
       }
 
       if (charIndex < text.length) {
@@ -208,7 +255,7 @@ oh and last thing, Anshuman from 2025 ne tumhe ye btane ko bola tha: Adulthood T
         letterContainer.appendChild(cursorSpan);
 
         charIndex++;
-        setTimeout(typeNextChar, speed ?? BASE_SPEED);
+        setTimeout(typeNextChar, speed || BASE_SPEED);
       } else {
         // move to next segment
         segmentIndex++;
